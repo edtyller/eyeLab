@@ -1,0 +1,132 @@
+/* Написать программу, которая заменяет все четные числа в целочисленном статическом массиве на 0 (массив из 10 элементов).
+#include <iostream>
+using namespace std;
+const int N = 10;
+void set(int* a, int size)
+{
+	cout << "Введите элементы массива\n";
+	for (int i = 0; i < size; i++)
+		cin >> a[i];
+}
+void get(int* a, int size)
+{
+	cout << "\nМассив\n";
+	for (int i = 0; i < size; i++)
+		cout << a[i] << "  ";
+	cout << endl;
+}
+void change(int* a, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (a[i] % 2 == 0)
+			a[i] = 0;
+	}
+}
+void main()
+{
+	setlocale(LC_ALL, "Russian");
+	int array[N];
+	set(array, N);
+	get(array, N);
+	change(array, N);
+	get(array, N);
+	system("pause");
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* #include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+void main()
+{
+	setlocale(LC_ALL, "Russian");
+	char sym;
+	string str;
+	int sig = 1;
+	cout << "Введите символ\n";
+	cin >> sym;
+	while (sig)
+	{
+		if (isalpha(sym))
+			sig = 0;
+		else
+		{
+			cout << "Введите символ\n";
+			cin >> sym;
+		}
+	}
+	sig = 1;
+	cout << "Введите строку\n";
+	cin >> str;
+	int len;
+	len = str.length();
+	while (sig)
+	{
+		for (int i = 0; i < len; i++)
+		{
+			if (isalpha(str[i]))
+			{
+				if (i == len - 1)
+					sig = 0;
+			}
+			else
+			{
+				cout << "Введите строку\n";
+				cin >> str;
+				len = str.length();
+				break;
+			}
+		}
+	}
+
+	for (int i = 0; i < len; i++)
+	{
+		if (str[i] == sym)
+		{
+			cout << "Номер символа в строке - " << i + 1 << endl;
+			break;
+		}
+		if (i == len - 1)
+			cout << "Символ в строке отсутствует\n";
+	}
+
+	system("pause");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* Расчет определителя матрицы, матрица размером 3 на 3. Ввод чисел построчно. Числа только целые.
+#include <iostream>
+
+using namespace std;
+
+const int M = 3;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int array[M][M], definer;
+	cout << "Введите элементы матрицы\n";
+	for (int i = 0; i < M; i++)
+	{
+		cout << "Введите элементы " << i + 1 << " строки матрицы\n";
+		for (int j = 0; j < M; j++)
+			cin >> array[i][j];
+	}
+	cout << "\nМатрица\n";
+	for (int i = 0; i < M; i++)
+	{
+		for (int j = 0; j < M; j++)
+			cout << array[i][j] << "  ";
+		cout << endl;
+	}
+	definer = array[0][0] * array[1][1] * array[2][2] + array[0][1] * array[1][2] * array[2][0] + array[0][2] * array[1][0] * array[2][1] - array[0][2] * array[1][1] * array[2][0] - array[0][1] * array[1][0] * array[2][2] - array[0][0] * array[1][2] * array[2][1];
+	cout << "Определитель матрицы = " << definer << endl;
+	system("pause");
+}
