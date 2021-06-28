@@ -1,0 +1,167 @@
+/* Составить программу, которая будет считывать введённое пятизначное число. 
+После чего, каждую цифру этого числа необходимо вывести в новой строке. */
+
+#include <iostream>
+
+using namespace std;
+
+void division(int num)
+
+{
+
+int div = 10000, temp;
+
+for (int i = 0; i < 5; i++)
+
+{
+
+temp = num / div;
+
+cout << temp << endl;
+
+num %= div;
+
+div /= 10;
+
+}
+
+}
+
+void main()
+
+{
+
+setlocale(LC_ALL, "Russian");
+
+int num = 0;
+
+while (num < 10000 || num > 99999)
+
+{
+
+cout << "Введите пятизначное число\n";
+
+cin >> num;
+
+}
+
+division(num);
+
+system("pause");
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+/* Напишите программу, которая позволяет пользователю ввести в консоли латинскую букву нижнего регистра, 
+переводит её в верхний регистр и результат выводит в консоль.*/
+
+#include <iostream>
+
+using namespace std;
+
+char transform(char ch)
+
+{
+
+int num;
+
+num = (int)ch - 32;
+
+ch = (char)num;
+
+cout << "Буква - ";
+
+return ch;
+
+}
+
+void main()
+
+{
+
+setlocale(LC_ALL, "Russian");
+
+char sym;
+
+while (1)
+
+{
+
+cout << "Введите символ или 0 для выхода\n";
+
+cin >> sym;
+
+if (sym == '0')
+
+break;
+
+cout << transform(sym) << endl;
+
+}
+
+system("pause");
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+/* Написать функцию, подсчитывающую среднее арифметическое целого массива.
+
+Предварительно объявив и, при необходимости, инициализировав переменные. */
+
+#include <iostream>
+
+using namespace std;
+
+double average(int* arr, int n)
+
+{
+
+int sum = 0;
+
+double avg;
+
+for (int i = 0; i < n; i++)
+
+sum += arr[i];
+
+avg = (float)sum / n;
+
+return avg;
+
+}
+
+void main()
+
+{
+
+setlocale(LC_ALL, "Russian");
+
+int* arr;
+
+int n;
+
+cout << "Введите количество элементов массива\n";
+
+cin >> n;
+
+arr = new int[n];
+
+cout << "Введите элементы массива\n";
+
+for (int i = 0; i < n; i++)
+
+cin >> arr[i];
+
+cout << "Массив\n";
+
+for (int i = 0; i < n; i++)
+
+cout << arr[i] << " ";
+
+cout << "\nСреднее арифметическое данного массива = " << average(arr, n) << endl;
+
+system("pause");
+
+}
